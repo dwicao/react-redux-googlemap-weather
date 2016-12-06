@@ -14,6 +14,7 @@ export default class GoogleMap extends React.Component {
       center: { lat: this.props.lat, lng: this.props.lng },
       zoom: 10
     });
+
   }
 
   render() {

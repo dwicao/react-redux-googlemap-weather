@@ -12,17 +12,19 @@ class Home extends Component {
   }
 
   _getLat() {
+    const {weather} = this.props;
+    const isEmpty = Object.keys(weather).length === 0;
     const defaultLat = -7.98;
-    const lat = this.props.weather.coord.lat;
 
-    return lat ? lat : defaultLat;
+    return isEmpty ? defaultLat : weather.coord.lat;
   }
 
   _getLng() {
+    const {weather} = this.props;
+    const isEmpty = Object.keys(weather).length === 0;
     const defaultLng = 112.63;
-    const lng = this.props.weather.coord.lon;
 
-    return lng ? lng : defaultLng;
+    return isEmpty ? defaultLng : weather.coord.lon;
   }
 
   render() {
@@ -32,7 +34,7 @@ class Home extends Component {
           {...this.props} />
         <GoogleMap
           lat={this._getLat()}
-          lng={this._getLng()} 
+          lng={this._getLng()}
           {...this.props} />
       </div>
     );
