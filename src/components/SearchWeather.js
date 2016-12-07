@@ -17,13 +17,13 @@ export default function SearchWeather(props) {
     const isLongEnough = text.length > 0;
 
     if (isEnterKey && isLongEnough) {
-      actions.fetchWeather(text);
+      actions.fetchWeatherByCity(text);
       input.value = '';
     }
   }
 
   return (
-    <div>
+    <div className="searchWeather">
       <input
         type="text"
         placeholder="Enter a place or city"

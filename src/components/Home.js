@@ -6,6 +6,8 @@ import * as weatherActions from '../actions/weatherActions';
 import GoogleMap from './GoogleMap';
 import SearchWeather from './SearchWeather';
 
+import '../styles/main.css';
+
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -32,6 +34,9 @@ class Home extends Component {
       <div>
         <SearchWeather
           {...this.props} />
+          <pre style={{ position: 'absolute' }}>
+            {JSON.stringify(this.props.weather, null, 2)}
+          </pre>
         <GoogleMap
           lat={this._getLat()}
           lng={this._getLng()}

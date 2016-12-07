@@ -15,16 +15,19 @@ export default class GoogleMap extends React.Component {
       zoom: 10
     });
 
+    this.map.addListener('click', function(e) {
+      const lat = e.latLng.lat();
+      const lng = e.latLng.lng();
+      this.props.actions.fetchWeatherByCoord(lat, lng);
+    }.bind(this));
+
   }
 
   render() {
-    const mapStyle = {
-      height: '500px',
-      width: '500px',
-    };
-
     return (
-      <div id="map" ref="map" style={mapStyle} />
+      <div>
+      <div id="map" ref="map" />
+      </div>
     );
   }
 }

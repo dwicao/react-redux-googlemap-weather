@@ -7,7 +7,7 @@ import configureStore from './store/configureStore';
 import Home from './components/Home';
 
 const store = configureStore(
-  load()
+
 );
 
 render(
