@@ -5,9 +5,12 @@ export default function SearchWeather(props) {
 
   let inputText;
 
-  const _fetchWeather = () => {
+  const _handleButton = () => {
     const city = inputText.value;
-    actions.fetchWeather(city);
+    if(city.length > 0) {
+      actions.fetchWeatherByCity(city);
+      inputText.value = '';
+    }
   }
 
   const _handleInput = event => {
@@ -29,7 +32,7 @@ export default function SearchWeather(props) {
         placeholder="Enter a place or city"
         ref={el => inputText = el}
         onKeyDown={_handleInput} />
-      <button onClick={_fetchWeather}>
+      <button onClick={_handleButton}>
         GO!
       </button>
     </div>
