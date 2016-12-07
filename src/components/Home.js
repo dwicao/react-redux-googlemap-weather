@@ -3,8 +3,9 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as weatherActions from '../actions/weatherActions';
 
-import GoogleMap from './GoogleMap';
 import SearchWeather from './SearchWeather';
+import GoogleMap from './GoogleMap';
+import InfoWeather from './InfoWeather';
 
 import '../styles/main.css';
 
@@ -41,6 +42,7 @@ class Home extends Component {
           lat={this._getLat()}
           lng={this._getLng()}
           {...this.props} />
+        <InfoWeather {...this.props} />
       </div>
     );
   }

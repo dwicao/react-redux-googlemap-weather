@@ -29,7 +29,7 @@ export default function SearchWeather(props) {
     <div className="searchWeather">
       <input
         type="text"
-        placeholder="Enter a place or city"
+        placeholder="Enter a town or city..."
         ref={el => inputText = el}
         onKeyDown={_handleInput} />
       <button onClick={_handleButton}>

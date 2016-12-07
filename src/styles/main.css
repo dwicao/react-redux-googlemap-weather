@@ -1,9 +1,14 @@
 #map {
-  height: 600px;
-  width: 600px;
+  height: 500px;
+  width: 500px;
   margin: 0 auto;
 }
 
 .searchWeather {
   text-align: center;
+}
+
+.infoWeather {
+  text-align: center;
+  margin: 0 auto;
 }
