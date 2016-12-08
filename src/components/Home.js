@@ -32,14 +32,16 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div className="home">
         <GoogleMap
           lat={this._getLat()}
           lng={this._getLng()}
           {...this.props} />
-        <SearchWeather
-          {...this.props} />
-        <InfoWeather {...this.props} />
+        <div className="topBar">
+          <SearchWeather
+            {...this.props} />
+          <InfoWeather {...this.props} />
+        </div>
       </div>
     );
   }
