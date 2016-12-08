@@ -91,6 +91,14 @@ img.infoWeather_icon {
     justify-content: space-around;
   }
 
+  .infoWeather_isEmpty {
+    height: 60px;
+  }
+
+  .infoWeather_isEmpty_text {
+    font-size: 14pt;
+  }
+
   .infoWeather_icon_container {
     order: 1;
   }
