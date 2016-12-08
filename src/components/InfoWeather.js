@@ -15,8 +15,10 @@ export default function InfoWeather(props) {
 
   if(isEmpty) {
     return (
-      <div className="infoWeather_container">
-        Click area on map or use search box above
+      <div className="infoWeather_isEmpty">
+        <span className="infoWeather_isEmpty_text">
+          Click area on map or use search box above!
+        </span>
       </div>
     );
   }
