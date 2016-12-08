@@ -14,7 +14,7 @@
   font-size: 11pt;
   border: 0;
   border-radius: 5px;
-  background-color: rgba(255, 255, 255, 0.8); 
+  background-color: rgba(255, 255, 255, 0.85); 
 }
 
 .searchWeather_button {
@@ -30,7 +30,29 @@
 }
 
 .infoWeather_container {
+  font-family: sans-serif;
+  display: flex;
+  justify-content: space-between;
   position: absolute;
   margin-top: 50px;
-  background-color: rgba(255, 255, 255, 0.5);
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.infoWeather_icon_container {
+  color: grey;
+  display: flex;
+}
+
+.infoWeather_text {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.infoWeather_cityName {
+  font-weight: bold;
+  color: grey;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: 20px;
 }

@@ -9,6 +9,10 @@ export default function InfoWeather(props) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
+  const kelvinToCelcius = (temperature) => {
+    return Math.floor( Number(temperature) - 273.15 );
+  }
+
   if(isEmpty) {
     return (
       <div className="infoWeather_container">
@@ -19,9 +23,25 @@ export default function InfoWeather(props) {
 
   return (
     <div className="infoWeather_container">
-      <div>{weather.name}</div>
-      <div>{capitalizeFirstLetter(weather.weather[0].description)}</div>
-      <img src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`} />
+      <div className="infoWeather_icon_container">
+        <img 
+          src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`}
+          className="infoWeather_icon" />
+        <div className="infoWeather_text">
+          <span className="infoWeather_temperature">
+            {kelvinToCelcius(weather.main.temp)}
+            &deg;
+            {'C'}
+          </span>
+          <div className="infoWeather_weatherInfo">
+            {capitalizeFirstLetter(weather.weather[0].description)}
+          </div>
+        </div>
+      </div>
+      <div className="infoWeather_cityName">
+          {weather.name}
+      </div>
+
     </div>
   );
 }
