@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 export default function SearchWeather(props) {
   const { actions } = props;
@@ -26,15 +26,23 @@ export default function SearchWeather(props) {
   }
 
   return (
-    <div className="searchWeather">
+    <div className="searchWeather_container">
       <input
+        className="searchWeather_input"
         type="text"
         placeholder="Enter a town or city..."
         ref={el => inputText = el}
         onKeyDown={_handleInput} />
-      <button onClick={_handleButton}>
+      <button
+        className="searchWeather_button"
+        onClick={_handleButton}>
         GO!
       </button>
     </div>
   );
 }
+
+SearchWeather.propTypes = {
+  actions: PropTypes.object.isRequired,
+  weather: PropTypes.object
+};

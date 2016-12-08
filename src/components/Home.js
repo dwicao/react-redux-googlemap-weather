@@ -33,14 +33,11 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <SearchWeather
-          {...this.props} />
-          <pre style={{ position: 'absolute' }}>
-            {JSON.stringify(this.props.weather, null, 2)}
-          </pre>
         <GoogleMap
           lat={this._getLat()}
           lng={this._getLng()}
+          {...this.props} />
+        <SearchWeather
           {...this.props} />
         <InfoWeather {...this.props} />
       </div>

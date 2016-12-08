@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-export default class GoogleMap extends React.Component {
+export default class GoogleMap extends Component {
   shouldComponentUpdate() {
     // This component must render one time only
-    // and never render it again
+    // and never render again
     return false;
   }
 
@@ -13,17 +13,22 @@ export default class GoogleMap extends React.Component {
     // Center map to next latitude and longtitude
     this.map.panTo(nextLatLng);
 
+    // Added animation if map is clicked
+    this.marker.setAnimation(google.maps.Animation.DROP);
+    
     // Set map position on current clicked area
     this.marker.setPosition(nextLatLng);
   }
 
   componentDidMount() {
-    const myLatLng = { lat: this.props.lat, lng: this.props.lng };
+    const defaultLatLng = { lat: this.props.lat, lng: this.props.lng };
 
     // Create new Map and center it with default coordinates
     this.map = new google.maps.Map(this.refs.map, {
-      center: myLatLng,
-      zoom: 10
+      center: defaultLatLng,
+      zoom: 10,
+      disableDefaultUI: true,
+      zoomControl: true
     });
 
     // Create new Marker
@@ -44,9 +49,14 @@ export default class GoogleMap extends React.Component {
 
   render() {
     return (
-      <div>
       <div id="map" ref="map" />
-      </div>
     );
   }
 }
+
+GoogleMap.propTypes = {
+  actions: PropTypes.object.isRequired,
+  lat: PropTypes.number.isRequired,
+  lng: PropTypes.number.isRequired,
+  weather: PropTypes.object.isRequired
+};

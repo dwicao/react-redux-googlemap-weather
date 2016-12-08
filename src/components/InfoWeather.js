@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 export default function InfoWeather(props) {
   const { actions, weather } = props;
@@ -11,17 +11,22 @@ export default function InfoWeather(props) {
 
   if(isEmpty) {
     return (
-      <div className="infoWeather">
+      <div className="infoWeather_container">
         Click area on map or use search box above
       </div>
     );
   }
 
   return (
-    <div className="infoWeather">
+    <div className="infoWeather_container">
       <div>{weather.name}</div>
       <div>{capitalizeFirstLetter(weather.weather[0].description)}</div>
       <img src={`http://openweathermap.org/img/w/${weather.weather[0].icon}.png`} />
     </div>
   );
 }
+
+InfoWeather.propTypes = {
+  actions: PropTypes.object.isRequired,
+  weather: PropTypes.object.isRequired
+};
