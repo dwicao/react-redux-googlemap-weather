@@ -4,6 +4,7 @@ export default function SearchWeather(props) {
   const { actions } = props;
 
   let inputText;
+  let buttonGo;
 
   const _handleButton = () => {
     const city = inputText.value;
@@ -22,11 +23,13 @@ export default function SearchWeather(props) {
     if (isEnterKey && isLongEnough) {
       actions.fetchWeatherByCity(text);
       input.value = '';
+      buttonGo.focus();
     }
   }
 
   return (
-    <div className="searchWeather_container">
+    <div
+      className="searchWeather_container">
       <input
         className="searchWeather_input"
         type="text"
@@ -35,7 +38,8 @@ export default function SearchWeather(props) {
         onKeyDown={_handleInput} />
       <button
         className="searchWeather_button"
-        onClick={_handleButton}>
+        onClick={_handleButton}
+        ref={el => buttonGo = el}>
         GO!
       </button>
     </div>
